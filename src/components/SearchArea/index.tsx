@@ -12,8 +12,8 @@ import {
 import React from 'react';
 import { flexCenter } from '../../styles/commonStyle';
 import { Icon } from '../Icons';
-import './SearchBar.scss';
 import theme from '../../styles/theme';
+import './SearchBar.scss';
 
 const SearchBar = () => {
   const mobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -47,13 +47,12 @@ const SearchBar = () => {
       position={'relative'}
       sx={{
         ...flexCenter,
-        width: { xs: '350px', sm: '448px', md: '364px', lg: '735px' },
       }}
     >
       <OutlinedInput
         sx={{
           height: '40px',
-          width: '100%',
+          width: { xs: '350px', sm: '448px', md: '364px', lg: '735px' },
           border: '1px solid #89919A',
           '& fieldset': { border: 'none', outline: 'none' },
           '& input::placeholder': { color: '#74777A' },

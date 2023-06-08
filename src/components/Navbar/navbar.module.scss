@@ -1,0 +1,101 @@
+nav {
+  height: 64px;
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    .navLinks {
+      display: flex;
+      gap: 31.3px;
+      padding: 24px 0px;
+      .link {
+        :hover ~ .dropMenu {
+          opacity: 1;
+          display: block;
+          transition: all 0.3s ease;
+        }
+
+        a {
+          color: #6a6d70;
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 16px;
+          padding-bottom: 7px;
+          &:hover {
+            color: #32363a;
+            border-bottom: 2px solid #0059bc;
+          }
+        }
+
+        //DropMenu
+
+        .dropMenu {
+          position: absolute;
+          top: 50px;
+          left: 120px;
+          width: 1200px;
+          height: 300px;
+          opacity: 0;
+          display: none;
+
+          &:hover {
+            opacity: 1;
+            display: block;
+          }
+
+          .content {
+            background-color: #f4f5f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 96px;
+            padding: 30px 48px;
+            .row {
+              header {
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 16px;
+                padding-bottom: 12px;
+              }
+              img {
+                width: 776px;
+                height: 240px;
+                object-fit: cover;
+              }
+
+              .menuLinks {
+                li {
+                  padding-bottom: 12px;
+                  a {
+                    border: none;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//Mobile
+@media only screen and (max-width: 480px) {
+  nav {
+    display: none !important;
+  }
+}
+
+//Tablet
+@media only screen and (max-width: 900px) {
+  nav {
+    height: 62px;
+
+    .wrapper {
+      justify-content: start;
+    }
+  }
+}

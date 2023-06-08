@@ -1,7 +1,14 @@
-import { Box, Button, Link, styled, useMediaQuery } from '@mui/material';
+import {
+  Box,
+  Button,
+  Container,
+  Link,
+  styled,
+  useMediaQuery,
+} from '@mui/material';
 import Image from 'mui-image';
 import logo from '/svg/logo.svg';
-import SearchBar from './searchBar/SearchBar';
+import SearchArea from './SearchArea';
 import { Icon } from './Icons';
 import { flexCenter } from '../styles/commonStyle';
 import theme from '../styles/theme';
@@ -36,35 +43,37 @@ const Header = () => {
   }));
 
   return (
-    <HeaderBox component="header">
-      <Box
-        sx={{
-          width: { xs: '100%', sm: 'auto' },
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-        }}
-      >
-        <Link
-          mr={'24px'}
-          href={'/'}
+    <Container maxWidth="lg">
+      <HeaderBox component="header">
+        <Box
           sx={{
-            ...flexCenter,
-            width: { sm: '183px', md: '170px', lg: '190px' },
-            height: { sm: '24px', md: '25px', lg: '24px' },
+            width: { xs: '100%', sm: 'auto' },
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
           }}
         >
-          <Image src={logo} width={'100%'} height={'auto'} duration={0} />
-        </Link>
-        {mobile ? <Icon name="menu" /> : null}
-      </Box>
-      <SearchBar />
-      {!mobile && (
-        <SearchButton variant="contained">
-          <Icon name="search" size={16} />
-        </SearchButton>
-      )}
-    </HeaderBox>
+          <Link
+            mr={'24px'}
+            href={'/'}
+            sx={{
+              ...flexCenter,
+              width: { sm: '183px', md: '170px', lg: '190px' },
+              height: { sm: '24px', md: '25px', lg: '24px' },
+            }}
+          >
+            <Image src={logo} width={'100%'} height={'auto'} duration={0} />
+          </Link>
+          {mobile ? <Icon name="menu" /> : null}
+        </Box>
+        <SearchArea />
+        {!mobile && (
+          <SearchButton variant="contained">
+            <Icon name="search" size={16} />
+          </SearchButton>
+        )}
+      </HeaderBox>
+    </Container>
   );
 };
 
