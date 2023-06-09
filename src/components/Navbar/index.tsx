@@ -24,7 +24,7 @@ const Navbar = () => {
         <div className={styles.wrapper}>
           <ul className={styles.navLinks}>
             {/* Navbar links */}
-            {Array.from({ length: 12 }).map((item, index) => (
+            {Array.from({ length: 6 }).map((item, index) => (
               <li className={styles.link} key={index}>
                 <a href="#">Menu Item</a>
                 {/* Drop menu */}
@@ -52,9 +52,11 @@ const Navbar = () => {
                       </ul>
                     </div>
                     {/* Drop menu image */}
-                    <div className={styles.row}>
-                      <img src={img} alt="" />
-                    </div>
+                    {!tablet && (
+                      <div className={styles.row}>
+                        <img src={img} alt="" />
+                      </div>
+                    )}
                   </div>
                 </div>
               </li>

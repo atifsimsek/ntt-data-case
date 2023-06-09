@@ -93,6 +93,9 @@ nav {
 @media only screen and (max-width: 900px) {
   nav {
     height: 62px;
+    .dropMenu {
+      width: 400px !important;
+    }
 
     .wrapper {
       justify-content: start;
