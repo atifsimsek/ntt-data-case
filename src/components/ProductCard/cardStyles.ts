@@ -3,10 +3,10 @@ import { flexCenter } from '../../styles/commonStyle';
 export const productCardStyles = {
   // Main container styles
   container: {
-    display: 'flex',
+    display: 'inline-flex',
     flexDirection: 'column',
     width: '100%',
-    maxWidth: '285px',
+    maxWidth: { sm: '220px', md: 'px', lg: '240px' },
     height: '375px',
     border: 1,
     p: 2,
@@ -25,13 +25,14 @@ export const productCardStyles = {
   // Product image styles
   productImage: {
     borderRadius: '3px 3px 0px 0px',
+    
   },
   // Favorite icon container styles
   favoriteIconContainer: {
     ...flexCenter,
     position: 'absolute',
-    top: 12,
-    right: 12,
+    top: 8,
+    right: 8,
     width: '24px',
     height: '24px',
     bgcolor: '#fff',
@@ -44,6 +45,7 @@ export const productCardStyles = {
   },
   // Product name styles
   productName: {
+    height: '1000px',
     fontWeight: 600,
     fontSize: '16px',
     lineClamp: 2,
@@ -51,6 +53,7 @@ export const productCardStyles = {
     WebkitBoxOrient: 'vertical',
     WebkitLineClamp: 2,
     overflow: 'hidden',
+    lineHeight: '19px',
   },
   // Product price styles
   productPrice: {
