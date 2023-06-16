@@ -82,9 +82,9 @@ const Navbar = () => {
                 <MenuItem value="">
                   <em>More</em>
                 </MenuItem>
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
+                <MenuItem value={10}>Menu Item</MenuItem>
+                <MenuItem value={20}>Menu Item</MenuItem>
+                <MenuItem value={30}>Menu Item</MenuItem>
               </Select>
             )}
           </ul>

@@ -99,9 +99,9 @@ const SearchBar = () => {
         onClose={handleClose}
         TransitionComponent={Fade}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem onClick={handleClose}>Categori 1</MenuItem>
+        <MenuItem onClick={handleClose}>Categori 2</MenuItem>
+        <MenuItem onClick={handleClose}>Categori 3</MenuItem>
       </Menu>
       {mobile && (
         <MobileSearchButton variant="contained">

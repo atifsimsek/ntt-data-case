@@ -2,24 +2,30 @@ import {
   Box,
   Button,
   Container,
+  Divider,
   Link,
+  Typography,
   styled,
   useMediaQuery,
+  IconButton,
 } from '@mui/material';
-import Image from 'mui-image';
-import logo from '/svg/logo.svg';
+import CloseIcon from '@mui/icons-material/Close';
 import SearchArea from './SearchArea';
 import { Icon } from './Icons';
 import { flexCenter } from '../styles/commonStyle';
 import theme from '../styles/theme';
+import { useState } from 'react';
 
 const Header = () => {
+  const [open, setOpen] = useState(false);
+
   const mobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const HeaderBox = styled(Box)(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
     height: '80px',
+
     [theme.breakpoints.down('md')]: {
       justifyContent: 'center',
       height: '89px',
@@ -43,7 +49,7 @@ const Header = () => {
   }));
 
   return (
-    <Container maxWidth="lg">
+    <Container sx={{ position: 'relative' }} maxWidth="lg">
       <HeaderBox component="header">
         <Box
           sx={{
@@ -65,7 +71,19 @@ const Header = () => {
           >
             <Icon name="deneme" color="#0059BC" />
           </Link>
-          {mobile ? <Icon name="menu" /> : null}
+          {mobile && (
+            <IconButton
+              onClick={() => setOpen(!open)}
+              sx={{
+                position: 'absolute',
+                top: '24px',
+                right: '24px',
+                zindex: 999,
+              }}
+            >
+              <Icon name="menu" />
+            </IconButton>
+          )}
         </Box>
         <SearchArea />
         {!mobile && (
@@ -73,6 +91,52 @@ const Header = () => {
             <Icon name="search" size={16} />
           </SearchButton>
         )}
+
+        <Box
+          sx={{
+            paddingTop: '91px',
+            paddingLeft: '12px',
+            position: 'absolute',
+            backgroundColor: '#fff',
+            inset: '0px',
+            width: '100%',
+            height: '800px',
+            zIndex: 10,
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '24px',
+            transition: 'all 1s',
+
+            transform: open ? 'translateY(0px)' : 'translateY(-100%)',
+          }}
+        >
+          <IconButton
+            onClick={() => setOpen(!open)}
+            sx={{
+              position: 'absolute',
+              top: '24px',
+              right: '30px',
+              zindex: 999,
+              color: '#1C1B1F',
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
+          {Array.from({ length: 3 }).map((item, index) => (
+            <Typography
+              sx={{ fontWeight: 500, fontSize: '24px', lineHeight: '28px' }}
+            >
+              {'Categori ' + (index + 1)}
+            </Typography>
+          ))}
+
+          <Divider
+            sx={{
+              mt: '24px',
+              border: '1px solid #D9D9D9',
+            }}
+          />
+        </Box>
       </HeaderBox>
     </Container>
   );

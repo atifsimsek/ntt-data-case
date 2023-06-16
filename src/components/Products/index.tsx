@@ -109,7 +109,12 @@ const Products = () => {
               .slice(0, count)
               .map((product: Product) =>
                 isLoading ? (
-                  <Skeleton variant="rectangular" width={'90%'} height={280} />
+                  <Skeleton
+                    key={product.id}
+                    variant="rectangular"
+                    width={'90%'}
+                    height={280}
+                  />
                 ) : (
                   <ProductCard key={product.id} product={product} />
                 )
