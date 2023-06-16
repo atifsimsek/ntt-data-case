@@ -10,8 +10,9 @@
     width: 10.55px !important;
   }
 }
+
 .slick-active {
-  & > .dot {
+  .dot {
     background-color: black !important;
     border-radius: 50% !important;
     width: 8.6px;

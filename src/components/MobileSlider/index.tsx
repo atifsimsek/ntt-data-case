@@ -1,24 +1,22 @@
-import Slider from 'react-slick';
+import React, { ReactNode } from 'react';
+import Slider, { Settings } from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import ProductCard from '../ProductCard';
 import './mobileSlider.scss';
 
-interface SliderSettings {
-  dots: boolean;
-  infinite: boolean;
-  speed: number;
-  slidesToShow: number;
-  slidesToScroll: number;
-  autoplay: boolean;
-  autoplaySpeed: number;
-  arrows: boolean;
+interface MobileSliderProps {
+  children: ReactNode;
+}
+
+interface SliderSettings extends Settings {
+  dotsClass?: string;
   customPaging?: (index: number) => React.ReactElement;
 }
 
-const MobileSlider = () => {
+const MobileSlider = ({ children }: MobileSliderProps) => {
   // Set up slider settings
   const settings: SliderSettings = {
+    dotsClass: 'slick-dots slick-thumb test',
     dots: true,
     infinite: true,
     autoplay: true,
@@ -32,13 +30,7 @@ const MobileSlider = () => {
   return (
     <>
       {/* Slider */}
-      <Slider {...settings}>
-        {Array.from({ length: 4 }).map((item, index) => (
-          <div className="deneme">
-            <ProductCard key={index} />
-          </div>
-        ))}
-      </Slider>
+      <Slider {...settings}>{children}</Slider>
     </>
   );
 };

@@ -35,7 +35,7 @@ const Navbar = () => {
                       {/* Drop menu links */}
                       <ul className={styles.menuLinks}>
                         {Array.from({ length: 8 }).map((item, index) => (
-                          <li>
+                          <li key={index}>
                             <a href="#">Subheader</a>
                           </li>
                         ))}
@@ -45,7 +45,7 @@ const Navbar = () => {
                       <header>Header</header>
                       <ul className={styles.menuLinks}>
                         {Array.from({ length: 8 }).map((item, index) => (
-                          <li>
+                          <li key={index}>
                             <a href="#">Subheader</a>
                           </li>
                         ))}

@@ -7,6 +7,7 @@ import 'slick-carousel/slick/slick-theme.css';
 
 import './mainSlider.scss';
 import { images } from './images';
+import { useRef } from 'react';
 
 interface SliderSettings {
   dots: boolean;
@@ -17,10 +18,13 @@ interface SliderSettings {
   autoplay: boolean;
   autoplaySpeed: number;
   arrows: boolean;
+  dotsClass?: string;
   customPaging?: (index: number) => React.ReactElement;
 }
 
 const MainSlider = () => {
+  const sliderRef = useRef();
+
   // Set up slider settings
   const settings: SliderSettings = {
     customPaging: (index: number) => {

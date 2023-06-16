@@ -5,11 +5,15 @@ import './styles/reset.scss';
 import './styles/index.scss';
 import { ThemeProvider } from '@emotion/react';
 import theme from './styles/theme.ts';
+import { Provider } from 'react-redux';
+import { store } from './store/index.ts';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </ThemeProvider>
   </React.StrictMode>
 );

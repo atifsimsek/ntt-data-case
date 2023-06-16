@@ -1,80 +1,70 @@
 import { flexCenter } from '../../styles/commonStyle';
 
-export const productCardStyles = {
-  // Main container styles
-  container: {
-    display: 'inline-flex',
-    flexDirection: 'column',
-    height: '375px',
-    border: 1,
-    p: 2,
+export const cardStyles = {
+  card: {
+    width: { md: '80%', lg: '85%' },
+    border: '1px solid #E6E6E6',
+    padding: '12px',
     borderRadius: '4px',
-    spacing: 1,
-    my: 2,
-    borderColor: '#E6EEF8',
-    padding: '13px',
-    gap: 2,
-    justifyContent: 'center',
-    maxWidth: { md: '85%', lg: '87%' },
   },
-  // Image container styles
   imageContainer: {
     position: 'relative',
+    height: '30%',
   },
-  // Product image styles
-
-  // Favorite icon container styles
-  favoriteIconContainer: {
+  image: {
+    width: '100%',
+    borderRadius: '5px 5px 0px 0px',
+  },
+  favoriteButtonContainer: {
     ...flexCenter,
     position: 'absolute',
     top: 8,
-    right: 8,
+    right: 6,
     width: '24px',
     height: '24px',
     bgcolor: '#fff',
     borderRadius: '50%',
   },
-  // Favorite icon styles
-  favoriteIcon: {
-    width: '13.33px',
-    height: '12.33px',
+  favoriteButton: {
+    width: '30px',
+    height: '30px',
+    padding: '0',
+    borderRadius: '50%',
   },
-  // Product name styles
   productName: {
-    height: '1000px',
+    paddingLeft: '4px',
     fontWeight: 600,
     fontSize: '16px',
     lineHeight: '19px',
   },
-  // Product price styles
-  productPrice: {
+  price: {
+    padding: '4px 8px',
     fontWeight: 700,
     fontSize: '14px',
     lineheight: '16px',
     backgroundColor: '#E6EEF8',
   },
-  // Description title styles
   descriptionTitle: {
+    paddingLeft: '4px',
     fontWeight: 500,
     fontSize: '12px',
     lineHeight: '14px',
   },
-  // Description content styles
-  descriptionContent: {
+  description: {
+    paddingLeft: '4px',
     fontWeight: 400,
     fontSize: '12px',
     lineHeight: '14px',
+    lineClamp: 2,
+    display: '-webkit-box',
+    WebkitLineClamp: 2,
+    WebkitBoxOrient: 'vertical',
+    overflow: 'hidden',
   },
-  // Shipping info styles
-  shippingInfo: {
+  shippingMethod: {
+    paddingLeft: '4px',
     fontWeight: 400,
     fontSize: '10px',
     lineHeight: '12px',
   },
-};
-
-type ObjectFit = 'contain' | 'cover' | 'fill' | 'none' | 'scale-down';
-export const imgStyles: { borderRadius: string; objectFit: ObjectFit } = {
-  borderRadius: '5px',
-  objectFit: 'contain',
 };
