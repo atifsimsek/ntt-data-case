@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Navbar from './components/Navbar';
 import MainSlider from './components/MainSlider';
 import Products from './components/Products';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Navbar />
       <MainSlider />
       <Products />
+      <Footer />
     </>
   );
 }

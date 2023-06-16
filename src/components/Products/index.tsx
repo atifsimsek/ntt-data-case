@@ -10,6 +10,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ProductCard from '../ProductCard';
 import theme from '../../styles/theme';
 import MobileSlider from '../MobileSlider';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const Products = () => {
   const mobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -85,6 +86,27 @@ const Products = () => {
             <ProductCard />
           </Grid>
         </Grid>
+      )}
+
+      {!mobile && (
+        <Button
+          sx={{
+            display: { sm: 'none', md: 'flex' },
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '193px',
+            height: '56px',
+            fontWeight: 500,
+            fontSize: { xs: '12px', lg: '16px' },
+            textTransform: 'none',
+            margin: 'auto',
+            mt: '36px',
+          }}
+          endIcon={<ArrowForwardIcon fontSize="small" />}
+          variant="contained"
+        >
+          Daha Fazla
+        </Button>
       )}
     </Container>
   );

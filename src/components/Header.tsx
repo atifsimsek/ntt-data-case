@@ -58,11 +58,12 @@ const Header = () => {
             href={'/'}
             sx={{
               ...flexCenter,
+
               width: { sm: '183px', md: '170px', lg: '190px' },
               height: { sm: '24px', md: '25px', lg: '24px' },
             }}
           >
-            <Image src={logo} width={'100%'} height={'auto'} duration={0} />
+            <Icon name="deneme" color="#0059BC" />
           </Link>
           {mobile ? <Icon name="menu" /> : null}
         </Box>
