@@ -1,13 +1,10 @@
-import { Box, Container } from '@mui/material';
+import { Box } from '@mui/material';
 import Slider from 'react-slick';
 import Image from 'mui-image';
-
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-
 import './mainSlider.scss';
 import { images } from './images';
-import { useRef } from 'react';
 
 interface SliderSettings {
   dots: boolean;
@@ -23,8 +20,6 @@ interface SliderSettings {
 }
 
 const MainSlider = () => {
-  const sliderRef = useRef();
-
   // Set up slider settings
   const settings: SliderSettings = {
     customPaging: (index: number) => {

@@ -1,5 +1,6 @@
 import { Box, IconButton, Typography } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import { memo } from 'react';
 import { Product } from '../../Types/AllTypes';
 import { cardStyles } from './cardStyles';
 import { useAppDispatch } from '../../store/hooks';
@@ -9,34 +10,31 @@ interface ProductCardProps {
   product: Product;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+const ProductCard: React.FC<ProductCardProps> = memo(({ product }) => {
   const { id, name, description, imageUrl, price, shippingMethod } = product;
   const { favorites } = useData();
 
-  const findFavorite = favorites.findIndex((item: Product) => item.id === id);
-  const isFavorite = findFavorite !== -1 ? true : false;
+  // Check if the current product is in the favorites list
+  const isFavorite = favorites.some((item: Product) => item.id === id);
   const dispatch = useAppDispatch();
 
+  // Function to handle favorite status
   const favoriteHandle = () => {
     dispatch(handleFavorite(product));
   };
+
   return (
     <Box sx={cardStyles.card} component="article">
       <Box sx={cardStyles.imageContainer}>
         <img width={'100%'} src={imageUrl} style={cardStyles.image} alt="" />
 
         <Box sx={cardStyles.favoriteButtonContainer}>
-          <IconButton
-            onClick={() => {
-              favoriteHandle();
-            }}
-            sx={cardStyles.favoriteButton}
-          >
+          <IconButton onClick={favoriteHandle} sx={cardStyles.favoriteButton}>
             <FavoriteIcon
               sx={{
                 width: '13.33px',
                 height: '12.33px',
-                color: `${isFavorite ? 'red' : '#e0e0e0'}`,
+                color: isFavorite ? 'red' : '#e0e0e0',
               }}
             />
           </IconButton>
@@ -73,6 +71,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       </Box>
     </Box>
   );
-};
+});
 
 export default ProductCard;

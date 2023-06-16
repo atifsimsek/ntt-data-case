@@ -20,7 +20,7 @@ const Footer = () => {
   const tablet = useMediaQuery(theme.breakpoints.down('lg'));
   const mobile = useMediaQuery(theme.breakpoints.down('md'));
   return (
-    <Box sx={footerStyles.mainContainer}>
+    <Box component={'footer'} sx={footerStyles.mainContainer}>
       <Container>
         <Box sx={footerStyles.contentContainer}>
           <Box sx={footerStyles.logoContainer}>
@@ -45,13 +45,14 @@ const Footer = () => {
           {!mobile && (
             <Box sx={footerStyles.linksContainer}>
               {Array.from({ length: 3 }).map((item, index) => (
-                <Box sx={footerStyles.linkColumn}>
+                <Box key={index} sx={footerStyles.linkColumn}>
                   <Typography sx={footerStyles.linkTitle} component={'h3'}>
                     Title
                   </Typography>
                   {!tablet &&
                     Array.from({ length: 4 }).map((item, index) => (
                       <Typography
+                        key={index}
                         sx={footerStyles.linkSubtitle}
                         component={'p'}
                       >

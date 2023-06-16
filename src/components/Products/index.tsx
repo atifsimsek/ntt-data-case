@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import {
   Container,
   Stack,
@@ -9,47 +10,48 @@ import {
   Skeleton,
 } from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import ProductCard from '../ProductCard';
-import theme from '../../styles/theme';
-import MobileSlider from '../MobileSlider';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { fetchData } from '../../store/services/dataService';
-import { useEffect, useState } from 'react';
 import { useData } from '../../store/features/productSlice';
 import { useAppDispatch } from '../../store/hooks';
 import { Product } from '../../Types/AllTypes';
 import { productStyles } from './productStyles';
 
-const Products = () => {
+import MobileSlider from '../MobileSlider';
+import ProductCard from '../ProductCard';
+import theme from '../../styles/theme';
+
+const Products = (): JSX.Element => {
   const mobile = useMediaQuery(theme.breakpoints.down('sm'));
   const dispatch = useAppDispatch();
 
-  const [count, setCount] = useState(4);
-  const [showMore, setShowMore] = useState(true);
-  const [showFav, setShowFav] = useState(false);
+  const [count, setCount] = useState<number>(4);
+  const [showMore, setShowMore] = useState<boolean>(true);
+  const [showFav, setShowFav] = useState<boolean>(false);
   const { allProducts, favorites, isLoading } = useData();
 
-  const items = showFav ? favorites : allProducts;
+  const items: Product[] = showFav ? favorites : allProducts;
 
-  const test = useEffect(() => {
+  useEffect(() => {
     dispatch(fetchData());
   }, [dispatch]);
 
-  const showMoreProduct = (currentCount: number) => {
+  // Load more products
+  const showMoreProduct = (currentCount: number): void => {
     setCount(currentCount + 4);
     if (currentCount + 4 >= allProducts.length) {
       setShowMore(false);
     }
   };
-
-  const resetProducts = () => {
+  // Reset the product count to the initial value
+  const resetProducts = (): void => {
     setCount(4);
     setShowMore(true);
   };
 
   return (
-    <Container maxWidth={'lg'}>
+    <Container component={'main'} maxWidth={'lg'}>
       <Stack
         direction={'row'}
         sx={{
@@ -72,7 +74,7 @@ const Products = () => {
             >
               {favorites.length + ' Ürün'}
             </Typography>
-            {showFav ? (
+            {!showFav ? (
               <Button
                 onClick={() => {
                   setShowFav(!showFav);
@@ -106,7 +108,7 @@ const Products = () => {
         <Box sx={productStyles.mobileSliderContainer}>
           <MobileSlider>
             {items
-              .slice(0, count)
+              .slice(0, 4)
               .map((product: Product) =>
                 isLoading ? (
                   <Skeleton

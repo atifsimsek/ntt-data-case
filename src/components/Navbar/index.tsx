@@ -10,21 +10,22 @@ import * as React from 'react';
 import theme from '../../styles/theme';
 import styles from './navbar.module.scss';
 import './navbar.module.scss';
+import { flexCenter } from '../../styles/commonStyle';
 
 const Navbar = () => {
   const tablet = useMediaQuery(theme.breakpoints.down('lg'));
-  const [age, setAge] = React.useState('');
+  const [value, setValue] = React.useState('');
 
   const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value);
+    setValue(event.target.value);
   };
   return (
-    <Container>
+    <Container sx={{ ...flexCenter }}>
       <nav>
         <div className={styles.wrapper}>
           <ul className={styles.navLinks}>
             {/* Navbar links */}
-            {Array.from({ length: 5 }).map((item, index) => (
+            {Array.from({ length: tablet ? 6 : 12 }).map((item, index) => (
               <li className={styles.link} key={index}>
                 <a href="#">Menu Item</a>
                 {/* Drop menu */}
@@ -74,7 +75,7 @@ const Navbar = () => {
                   '& fieldset': { border: 'none', outline: 'none' },
                   '& input::placeholder': { color: '#74777A' },
                 }}
-                value={age}
+                value={value}
                 onChange={handleChange}
                 displayEmpty
                 inputProps={{ 'aria-label': 'Without label' }}

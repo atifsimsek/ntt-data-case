@@ -73,7 +73,7 @@ const Menu: React.FC<FullScreenOffIconProps> = ({ size }) => {
   );
 };
 
-const Deneme: React.FC<FullScreenOffIconProps> = ({ size, color }) => {
+const Logo: React.FC<FullScreenOffIconProps> = ({ size, color }) => {
   return (
     <svg
       width="183"
@@ -133,7 +133,7 @@ export const Icon: React.FC<IconProps> = ({ name, size = 24, color }) => {
     arrowDown: ArrowDown,
     arrowUp: ArrowUp,
     menu: Menu,
-    deneme: Deneme,
+    logo: Logo,
   };
 
   const Component = icons[name];
