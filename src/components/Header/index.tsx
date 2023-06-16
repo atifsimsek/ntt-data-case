@@ -60,7 +60,7 @@ const Header = () => {
             transform: open ? 'translateY(0px)' : 'translateY(-100%)',
           }}
         >
-          {Array.from({ length: 3 }).map((item, index) => (
+          {Array.from({ length: 3 }).map((_item, index) => (
             <Typography
               key={index}
               sx={{

@@ -25,7 +25,7 @@ const Navbar = () => {
         <div className={styles.wrapper}>
           <ul className={styles.navLinks}>
             {/* Navbar links */}
-            {Array.from({ length: tablet ? 6 : 12 }).map((item, index) => (
+            {Array.from({ length: tablet ? 6 : 12 }).map((_item, index) => (
               <li className={styles.link} key={index}>
                 <a href="#">Menu Item</a>
                 {/* Drop menu */}
@@ -35,7 +35,7 @@ const Navbar = () => {
                       <header>Header</header>
                       {/* Drop menu links */}
                       <ul className={styles.menuLinks}>
-                        {Array.from({ length: 8 }).map((item, index) => (
+                        {Array.from({ length: 8 }).map((_item, index) => (
                           <li key={index}>
                             <a href="#">Subheader</a>
                           </li>
@@ -45,7 +45,7 @@ const Navbar = () => {
                     <div className={styles.row}>
                       <header>Header</header>
                       <ul className={styles.menuLinks}>
-                        {Array.from({ length: 8 }).map((item, index) => (
+                        {Array.from({ length: 8 }).map((_item, index) => (
                           <li key={index}>
                             <a href="#">Subheader</a>
                           </li>

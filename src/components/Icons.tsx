@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 
 interface FullScreenOffIconProps {
@@ -22,7 +23,7 @@ const SearchIcon: React.FC<FullScreenOffIconProps> = ({ size }) => {
   );
 };
 
-const ArrowUp: React.FC<FullScreenOffIconProps> = ({ size }) => {
+const ArrowUp: React.FC<FullScreenOffIconProps> = () => {
   return (
     <svg
       width="12"
@@ -39,7 +40,7 @@ const ArrowUp: React.FC<FullScreenOffIconProps> = ({ size }) => {
   );
 };
 
-const ArrowDown: React.FC<FullScreenOffIconProps> = ({ size }) => {
+const ArrowDown: React.FC<FullScreenOffIconProps> = () => {
   return (
     <svg
       width="12"
@@ -56,7 +57,7 @@ const ArrowDown: React.FC<FullScreenOffIconProps> = ({ size }) => {
   );
 };
 
-const Menu: React.FC<FullScreenOffIconProps> = ({ size }) => {
+const Menu: React.FC<FullScreenOffIconProps> = () => {
   return (
     <svg
       width="18"
@@ -73,7 +74,7 @@ const Menu: React.FC<FullScreenOffIconProps> = ({ size }) => {
   );
 };
 
-const Logo: React.FC<FullScreenOffIconProps> = ({ size, color }) => {
+const Logo: React.FC<FullScreenOffIconProps> = ({ color }) => {
   return (
     <svg
       width="183"
