@@ -13,7 +13,7 @@ import React from 'react';
 import { flexCenter } from '../../styles/commonStyle';
 import { Icon } from '../Icons';
 import theme from '../../styles/theme';
-import './SearchBar.scss';
+import './searchBar.scss';
 
 const SearchBar = () => {
   const mobile = useMediaQuery(theme.breakpoints.down('sm'));
