@@ -24,7 +24,7 @@ const Navbar = () => {
         <div className={styles.wrapper}>
           <ul className={styles.navLinks}>
             {/* Navbar links */}
-            {Array.from({ length: 12 }).map((item, index) => (
+            {Array.from({ length: 5 }).map((item, index) => (
               <li className={styles.link} key={index}>
                 <a href="#">Menu Item</a>
                 {/* Drop menu */}

@@ -1,7 +1,7 @@
 import { Box, IconButton, Typography } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import img from '/images/productImage.png';
-import { productCardStyles } from './cardStyles';
+import { imgStyles, productCardStyles } from './cardStyles';
 
 const ProductCard = () => {
   return (
@@ -12,8 +12,8 @@ const ProductCard = () => {
           src={img}
           alt={'img'}
           width="100%"
-          height="179px"
-          style={productCardStyles.productImage}
+          height="170px"
+          style={imgStyles}
         />
         <Box sx={productCardStyles.favoriteIconContainer}>
           <IconButton

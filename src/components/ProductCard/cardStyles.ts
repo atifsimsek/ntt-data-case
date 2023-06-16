@@ -5,8 +5,6 @@ export const productCardStyles = {
   container: {
     display: 'inline-flex',
     flexDirection: 'column',
-    width: '100%',
-    maxWidth: { sm: '220px', md: 'px', lg: '240px' },
     height: '375px',
     border: 1,
     p: 2,
@@ -17,16 +15,14 @@ export const productCardStyles = {
     padding: '13px',
     gap: 2,
     justifyContent: 'center',
+    maxWidth: { md: '85%', lg: '87%' },
   },
   // Image container styles
   imageContainer: {
     position: 'relative',
   },
   // Product image styles
-  productImage: {
-    borderRadius: '3px 3px 0px 0px',
-    
-  },
+
   // Favorite icon container styles
   favoriteIconContainer: {
     ...flexCenter,
@@ -48,11 +44,6 @@ export const productCardStyles = {
     height: '1000px',
     fontWeight: 600,
     fontSize: '16px',
-    lineClamp: 2,
-    display: '-webkit-box',
-    WebkitBoxOrient: 'vertical',
-    WebkitLineClamp: 2,
-    overflow: 'hidden',
     lineHeight: '19px',
   },
   // Product price styles
@@ -80,4 +71,10 @@ export const productCardStyles = {
     fontSize: '10px',
     lineHeight: '12px',
   },
+};
+
+type ObjectFit = 'contain' | 'cover' | 'fill' | 'none' | 'scale-down';
+export const imgStyles: { borderRadius: string; objectFit: ObjectFit } = {
+  borderRadius: '5px',
+  objectFit: 'contain',
 };

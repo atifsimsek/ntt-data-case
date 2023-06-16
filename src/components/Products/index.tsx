@@ -1,8 +1,19 @@
-import { Container, Stack, Typography, Button, Grid } from '@mui/material';
+import {
+  Container,
+  Stack,
+  Typography,
+  Button,
+  Grid,
+  useMediaQuery,
+} from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ProductCard from '../ProductCard';
+import theme from '../../styles/theme';
+import MobileSlider from '../MobileSlider';
 
 const Products = () => {
+  const mobile = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
     <Container maxWidth={'lg'}>
       <Stack
@@ -19,8 +30,7 @@ const Products = () => {
             component={'h1'}
             sx={{
               fontWeight: 500,
-              fontSize: '32px',
-              lineHeight: '38px',
+              fontSize: { xs: '14px', lg: '32px' },
             }}
           >
             Content title goes here
@@ -35,7 +45,7 @@ const Products = () => {
             <Typography
               sx={{
                 fontWeight: 500,
-                fontSize: '16px',
+                fontSize: { xs: '12px', lg: '16px' },
                 lineHeight: '19px',
               }}
               component={'p'}
@@ -45,8 +55,9 @@ const Products = () => {
             </Typography>
             <Button
               sx={{
+                width: '50%',
                 fontWeight: 500,
-                fontSize: '16px',
+                fontSize: { xs: '12px', lg: '16px' },
                 lineHeight: '19px',
                 textTransform: 'none',
               }}
@@ -57,29 +68,24 @@ const Products = () => {
           </Stack>
         </>
       </Stack>
-      <Grid
-        sx={{
-          width: '1200px',
-        }}
-        container
-        maxWidth={'lg'}
-      >
-        <Grid md={3}>
-          <ProductCard />
+      {mobile ? (
+        <MobileSlider />
+      ) : (
+        <Grid container maxWidth={'lg'}>
+          <Grid item md={3}>
+            <ProductCard />
+          </Grid>
+          <Grid item md={3}>
+            <ProductCard />
+          </Grid>
+          <Grid item md={3}>
+            <ProductCard />
+          </Grid>
+          <Grid item md={3}>
+            <ProductCard />
+          </Grid>
         </Grid>
-        <Grid md={3}>
-          <ProductCard />
-        </Grid>
-        <Grid md={3}>
-          <ProductCard />
-        </Grid>
-        <Grid md={3}>
-          <ProductCard />
-        </Grid>
-        <Grid md={3}>
-          <ProductCard />
-        </Grid>
-      </Grid>
+      )}
     </Container>
   );
 };
