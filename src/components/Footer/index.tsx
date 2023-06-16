@@ -44,13 +44,13 @@ const Footer = () => {
 
           {!mobile && (
             <Box sx={footerStyles.linksContainer}>
-              {Array.from({ length: 3 }).map((item, index) => (
+              {Array.from({ length: 3 }).map((_item, index) => (
                 <Box key={index} sx={footerStyles.linkColumn}>
                   <Typography sx={footerStyles.linkTitle} component={'h3'}>
                     Title
                   </Typography>
                   {!tablet &&
-                    Array.from({ length: 4 }).map((item, index) => (
+                    Array.from({ length: 4 }).map((_item, index) => (
                       <Typography
                         key={index}
                         sx={footerStyles.linkSubtitle}
