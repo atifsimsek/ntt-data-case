@@ -7,7 +7,7 @@
 
 ## 🌍 Live
 
-[Click To Review]()
+[Click To Review](https://ntt-data-case.vercel.app/)
 
 ## 💻 Built with
 

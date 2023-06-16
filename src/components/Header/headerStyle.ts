@@ -56,7 +56,7 @@ export const headerStyles = {
     backgroundColor: '#fff',
     inset: '0px',
     width: '100%',
-    height: '800px',
+    height: '100vh',
     zIndex: 10,
     display: 'flex',
     flexDirection: 'column',
