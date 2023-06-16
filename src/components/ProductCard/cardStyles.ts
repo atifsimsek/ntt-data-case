@@ -6,6 +6,7 @@ export const cardStyles = {
     border: '1px solid #E6E6E6',
     padding: '12px',
     borderRadius: '4px',
+    marginBottom: '16px',
   },
   imageContainer: {
     position: 'relative',

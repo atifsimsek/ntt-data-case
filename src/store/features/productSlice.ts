@@ -11,7 +11,7 @@ interface DataState {
 }
 
 const initialState: DataState = {
-  favorites: [],
+  favorites: JSON.parse(localStorage.getItem('favorites') || '[]'),
   allProducts: [],
   isLoading: false,
   error: '',
@@ -20,7 +20,20 @@ const initialState: DataState = {
 const productSlice = createSlice({
   name: 'products',
   initialState,
-  reducers: {},
+  reducers: {
+    handleFavorite: (state, action) => {
+      const product = action.payload;
+      const index = state.favorites.findIndex(
+        (item: Product) => item.id === product.id
+      );
+      if (index === -1) {
+        state.favorites.push(product);
+      } else {
+        state.favorites.splice(index, 1);
+      }
+      localStorage.setItem('favorites', JSON.stringify(state.favorites));
+    },
+  },
   extraReducers(builder) {
     builder.addCase(fetchData.pending, (state) => {
       state.isLoading = true;
@@ -36,7 +49,7 @@ const productSlice = createSlice({
   },
 });
 
-// export const {} = productSlice.actions;
+export const { handleFavorite } = productSlice.actions;
 
 export default productSlice.reducer;
 
